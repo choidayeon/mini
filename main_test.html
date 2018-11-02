@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>MINI COOPER</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<script src="./js/jquery-3.3.1.min.js"></script>
+	<script src="./js/jquery.fullPage.js"></script>
+	<style>
+		#fullpage{width:100%;height:100%;}
+		#page1{background-image:url(./images/bg_section1.jpg);}
+		#page2{background-image:url(./images/bg_section2.jpg);}
+		#page3{background-image:url(./images/bg_section3.jpg);}
+		#page4{background-image:url(./images/bg_section4.jpg);}
+		#page5{width:100%;height:400px;background:#000;}
+		.pages{width:100%;height:100%;background-repeat:no-repeat;background-position:center top;background-size:cover;}
+
+		#navTop{height:50px;background:#000;width:100%;position:fixed;z-index:1;}
+		#navTop>ul{margin-left:20px;}
+		#navTop>ul:after{content:"";display:block;clear:both;}
+		#navTop>ul>li{float:left;}
+		#navTop>ul>li>a{display:block;line-height:50px;text-align:center;padding:0 10px;color:#fff;}
+
+		#navTop>ul>li.active{background:#fff;font-weight:bold;}
+		#navTop>ul>li.active>a{color:#000;}
+
+		.main_cmt{position:relative;top:50%;left:calc(50%-100px);text-align:center;color:#fff;}
+		.main_cmt h1{font-size:4em;margin-bottom:20px;text-shadow:3px 3px 3px rgba(0,0,0,0.2);}
+		.main_cmt p{font-size:2em;text-shadow:3px 3px 3px rgba(0,0,0,0.2);}
+		.main_cmt a{width:150px;height:50px;text-align:center;line-height:50px;color:#fff;border:1px solid #fff;display:inline-block;margin-top:30px;}
+		.main_cmt a:hover{background:#fff;color:#000;transition-duration:.5s;}
+
+		.pages div.onview1{opacity:0;transition:.5s;top:0;}
+		.pages div.onview1.mactive1{opacity:1;transform:translateY(200px);}
+		.pages div.onview2{opacity:0;transition:.5s;}
+		.pages div.onview2.mactive2{opacity:1;transform:translateY(200px);}
+		.pages div.onview3{opacity:0;transition:.3s;}
+		.pages div.onview3.mactive3{opacity:1;transform:translateY(200px);}
+		.pages div.onview4{opacity:0;transition:.3s;}
+		.pages div.onview4.mactive4{opacity:1;transform:translateY(200px);}
+
+		/*.onview1>.main_cmt>h1.one1{transition-delay:0.3s;}
+		.onview1>.main_cmt>p.one2{transition-delay:0.6s;}
+		.onview1>.main_cmt>p.one3{transition-delay:0.9s;}*/
+	</style>
+	<script>
+		$(function(){
+			$("#fullpage").fullpage({
+				anchors:["1st","2st","3st","4st","5st"],
+				menu:"#topMenu",
+				'afterLoad':function(anchorsLink,index){
+					
+					if(index==1){
+						// $(".onview1").addClass("mactive1");
+						$(".onview1 .one").each(function(index){
+
+					$(".onview1 .one").eq(index).delay(30*index).animate({top:50,opacity:1});
+				});
+						
+						
+					}else{
+						$(".onview1").removeClass("mactive1");
+						
+					}
+
+					if(index==2){
+						$(".onview2").addClass("mactive2");
+					}else{
+						$(".onview2").removeClass("mactive2");
+					}
+
+					if(index==3){
+						$(".onview3").addClass("mactive3");
+					}else{
+						$(".onview3").removeClass("mactive3");
+					}
+
+					if(index==4){
+						$(".onview4").addClass("mactive4");
+					}else{
+						$(".onview4").removeClass("mactive4");
+					}
+					
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<nav id="navTop">
+		<ul id="topMenu">
+			<li data-menuanchor="1st"><a href="#1st">MENU1</a></li>
+			<li data-menuanchor="2st"><a href="#2st">MENU2</a></li>
+			<li data-menuanchor="3st"><a href="#3st">MENU3</a></li>
+			<li data-menuanchor="4st"><a href="#4st">MENU4</a></li>
+			<li data-menuanchor="5st"><a href="#5st">MENU5</a></li>
+		</ul>
+	</nav>
+	<div id="fullpage">
+		<div class="section pages" id="page1">
+			<div class="onview1">
+				<div class="main_cmt">
+					<h1 class="one">Lorem ipsum.</h1>
+					<p class="one">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, dicta.</p>
+					<a href="#" class="one">More</a>
+				</div>
+			</div>
+		</div>
+		<div class="section pages" id="page2">
+			<div class="onview2">
+				<div class="main_cmt">
+					<h1>Lorem ipsum.</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, dicta.</p>
+					<a href="#">More</a>
+				</div>
+			</div>
+		</div>
+		<div class="section pages" id="page3">
+			<div class="onview3">
+				<div class="main_cmt">
+					<h1>Lorem ipsum.</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, ipsa?</p>
+					<a href="#">More</a>
+				</div>
+			</div>
+		</div>
+		<div class="section pages" id="page4">
+			<div class="onview4">
+				<div class="main_cmt">
+					<h1>Lorem ipsum.</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, debitis?</p>
+					<a href="#">More</a>
+				</div>
+			</div>
+		</div>
+		<div class="section" id="page5">
+			<div class="main_cmt">
+				<h1>Lorem ipsum.</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, possimus.</p>
+				<a href="#">More</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
